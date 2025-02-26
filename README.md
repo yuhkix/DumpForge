@@ -4,7 +4,7 @@
 ## Quick tool summary
 
 - RAPE-WuWa (my addition utilizing the **PE Utils** and **AES Key Finder** library)
-  - Dumps the Main AES Key from the given (unpacked) executable
+  - Currently only dumps the main aes key, but i do plan to add support for pak 26-28 whenever i find a way to automize the necessary steps
 - AES Key Finder (by xavo)
   - Should be self-explanatory but, basically after parsing a PE file you can pass image base, sections, and 
   data(raw binary) and the filter(this tool includes Restricted and Relax filters, but you can add more)

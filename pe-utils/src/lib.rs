@@ -92,7 +92,7 @@ pub fn get_imports<'a>(bytes: &'a [u8], optional_header: &OptionalHeader, sectio
     let opts = &options::ParseOptions::default();
     let file_alignment = optional_header.windows_fields.file_alignment;
     let is_64 = optional_header.container()? == container::Container::Big;
-    let mut imports = vec![];
+    let mut _imports = vec![];
     let mut import_data = None;
     if let Some(&import_table) = optional_header.data_directories.get_import_table() {
         let id = if is_64 {
@@ -113,9 +113,9 @@ pub fn get_imports<'a>(bytes: &'a [u8], optional_header: &OptionalHeader, sectio
             )?
         };
         if is_64 {
-            imports = import::Import::parse::<u64>(bytes, &id, &sections)?
+            _imports = import::Import::parse::<u64>(bytes, &id, &sections)?
         } else {
-            imports = import::Import::parse::<u32>(bytes, &id, &sections)?
+            _imports = import::Import::parse::<u32>(bytes, &id, &sections)?
         }
         let mut libraries = id
             .import_data
