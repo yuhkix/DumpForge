@@ -9,7 +9,7 @@
   - Should be self-explanatory but, basically after parsing a PE file you can pass image base, sections, and 
   data(raw binary) and the filter(this tool includes Restricted and Relax filters, but you can add more)
   - To get the 3 first params, please refer to PE Utils down below
-- Offset Finder
+- Offset Finder (by xavo)
   - This library allows to find patterns in executables
   - Allows to find either exact or partial matches by leveraging wildcards(??)
   - Also has options for silent reporting(skip_print_offset) or allow multiple matches
