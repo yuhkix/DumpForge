@@ -2,11 +2,8 @@
 resolver = "2"
 members = [
     "aes-key-finder",
-    "cursor",
     "offset-finder",
     "pe-utils", "rape-wuwa",
-    "restorer",
-    "tlzma"
 ]
 
 [workspace.package]

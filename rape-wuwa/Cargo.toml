@@ -8,10 +8,6 @@ cc = "1.0"
 
 [dependencies]
 aes-key-finder = { path = "../aes-key-finder" }
-offset-finder = { path = "../offset-finder" }
 pe-utils = { path = "../pe-utils" }
-tlzma = { path = "../tlzma" }
-restorer = { path = "../restorer" }
-cursor = { path = "../cursor" }
 goblin.workspace = true
 colored = "3.0.0"

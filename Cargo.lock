@@ -11,12 +11,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "byteorder"
-version = "1.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
-
-[[package]]
 name = "cc"
 version = "1.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -33,21 +27,6 @@ checksum = "fde0e0ec90c9dfb3b4b1a0891a7dcd0e2bffde2f7efed5fe7c9bb00e5bfb915e"
 dependencies = [
  "windows-sys",
 ]
-
-[[package]]
-name = "crc"
-version = "3.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "69e6e4d7b33a94f0991c26729976b10ebde1d34c3ee82408fb536164fa10d636"
-dependencies = [
- "crc-catalog",
-]
-
-[[package]]
-name = "crc-catalog"
-version = "2.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "19d374276b40fb8bbdee95aef7c7fa6b5316ec764510eb64b8dd0e2ed0d7e7f5"
 
 [[package]]
 name = "crossbeam-deque"
@@ -75,14 +54,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d0a5c400df2834b80a4c3327b3aad3a4c4cd4de0629063962b03235697506a28"
 
 [[package]]
-name = "cursor"
-version = "0.1.0"
-dependencies = [
- "thiserror 2.0.9",
- "widestring",
-]
-
-[[package]]
 name = "either"
 version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -104,16 +75,6 @@ name = "log"
 version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
-
-[[package]]
-name = "lzma-rs"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "297e814c836ae64db86b36cf2a557ba54368d03f6afcd7d947c266692f71115e"
-dependencies = [
- "byteorder",
- "crc",
-]
 
 [[package]]
 name = "offset-finder"
@@ -176,12 +137,8 @@ dependencies = [
  "aes-key-finder",
  "cc",
  "colored",
- "cursor",
  "goblin",
- "offset-finder",
  "pe-utils",
- "restorer",
- "tlzma",
 ]
 
 [[package]]
@@ -202,16 +159,6 @@ checksum = "1465873a3dfdaa8ae7cb14b4383657caab0b3e8a0aa9ae8e04b044854c8dfce2"
 dependencies = [
  "crossbeam-deque",
  "crossbeam-utils",
-]
-
-[[package]]
-name = "restorer"
-version = "0.1.0"
-dependencies = [
- "goblin",
- "log",
- "pe-utils",
- "thiserror 2.0.9",
 ]
 
 [[package]]
@@ -312,24 +259,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "tlzma"
-version = "0.1.0"
-dependencies = [
- "lzma-rs",
- "thiserror 2.0.9",
-]
-
-[[package]]
 name = "unicode-ident"
 version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "adb9e6ca4f869e1180728b7950e35922a7fc6397f7b641499e8f3ef06e50dc83"
-
-[[package]]
-name = "widestring"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7219d36b6eac893fa81e84ebe06485e7dcbb616177469b142df14f1f4deb1311"
 
 [[package]]
 name = "windows-sys"
