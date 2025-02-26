@@ -1,0 +1,32 @@
+[workspace]
+resolver = "2"
+members = [
+    "aes-key-finder",
+    "cursor",
+    "offset-finder",
+    "pe-utils", "rape-wuwa",
+    "restorer",
+    "tlzma"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[workspace.dependencies]
+goblin = "0.9.2"
+log = "0.4.22"
+lzma-rs = { version = "0.3.0", features = ["raw_decoder"] }
+patternscanner = "0.5.0"
+serde = { version = "1.0.217", features = ["derive"] }
+thiserror = "2.0.9"
+widestring = "1.1.0"
+
+offset-finder = { path = "offset-finder" }
+pe-utils = { path = "pe-utils" }
+
+[profile.release]
+strip = true      # Automatically strip symbols from the binary.
+lto = true        # Link-time optimization.
+opt-level = 3     # Optimization level 3.
+codegen-units = 1 # Maximum size reduction optimizations.

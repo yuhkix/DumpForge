@@ -1,0 +1,16 @@
+[package]
+name = "offset-finder"
+version.workspace = true
+edition.workspace = true
+
+[features]
+json_input = ["dep:serde"]
+
+[dependencies]
+goblin.workspace = true
+log.workspace = true
+patternscanner.workspace = true
+serde = { workspace = true, optional = true }
+thiserror.workspace = true
+
+pe-utils.workspace = true

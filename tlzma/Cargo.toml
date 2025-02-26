@@ -1,0 +1,8 @@
+[package]
+name = "tlzma"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+lzma-rs.workspace = true
+thiserror.workspace = true

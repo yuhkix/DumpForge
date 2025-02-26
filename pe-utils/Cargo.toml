@@ -1,0 +1,8 @@
+[package]
+name = "pe-utils"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+goblin.workspace = true
+thiserror.workspace = true

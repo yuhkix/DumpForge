@@ -1,0 +1,9 @@
+[package]
+name = "aes-key-finder"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+goblin.workspace = true
+
+offset-finder.workspace = true
