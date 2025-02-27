@@ -5,8 +5,12 @@ use pe_utils::{parse_headers, get_optional_headers, get_sections};
 use aes_key_finder::{dump_aes_key, dump_aes_key_restricted};
 use colored::*;
 use serde_json::json;
+use winconsole::console::set_title;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+
+    set_title("Wuthering Waves AES Fetcher").unwrap();
+
     println!("{}", "Enter the path to the executable:".bright_blue());
     
     let mut executable_path = String::new();
