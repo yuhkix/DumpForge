@@ -63,12 +63,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut output_file = File::create("AES.json")?;
     writeln!(output_file, "{}", serde_json::to_string_pretty(&json_output)?)?;
     
-    wait_for_enter();
-    Ok(())
-}
-
-fn wait_for_enter() {
     println!("{}", "Press Enter to exit...".bright_blue());
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
+    
+    Ok(())
 }
