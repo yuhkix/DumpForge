@@ -1,9 +1,9 @@
 @echo off
 REM Change directory to the project folder
-cd /D rape-wuwa
+cd /D rape-ue
 
 REM Change the title
-title rape-wuwa build [release]
+title rape-ue build [release]
 
 REM Clean the project
 echo Cleaning the project...

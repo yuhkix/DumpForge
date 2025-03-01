@@ -1,5 +1,5 @@
 [package]
-name = "rape-wuwa"
+name = "rape-ue"
 version.workspace = true
 edition.workspace = true
 build = "build.rs"

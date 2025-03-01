@@ -11,7 +11,7 @@ use std::env;
 use winconsole::console::clear;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    set_title("Wuthering Waves AES Fetcher").unwrap();
+    set_title("Unreal Engine AES Fetcher").unwrap();
 
     clear().expect("failed to clear console.");
     println!("{}", "Enter the path to the executable:".bright_blue());

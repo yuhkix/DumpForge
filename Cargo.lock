@@ -203,7 +203,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rape-wuwa"
+name = "rape-ue"
 version = "0.1.0"
 dependencies = [
  "aes-key-finder",
