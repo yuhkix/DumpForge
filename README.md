@@ -1,4 +1,4 @@
-# RAPE-UE (Unreal Engine AES Dumper)
+# DumpForge
 
 > **Credits:** Full credit goes to [xavo95](https://git.xeondev.com/xavo95/RAPE-toolkit) for the invaluable  
 > **Reverse Assembling Program Engineering (RAPE) Toolkit**.  
@@ -8,7 +8,7 @@
 
 ## 📌 Quick Tool Summary
 
-### 🔹 RAPE-UE (My Addition)
+### 🔹 DumpForge (My Addition)
 - Utilizes **PE Utils**, **AES Key Finder** and **Restorer** libraries.
 - Dumps the **main AES key**
 - Restores **section headers** from memory dumps
