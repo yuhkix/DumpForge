@@ -50,28 +50,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let hex_key: String = format!("0x{}", aes_keys_restricted.iter().next().unwrap()
             .iter().map(|byte| format!("{:02X}", byte)).collect::<String>());
         json_output["aes_keys"]["main"] = json!(hex_key);
-        println!("{}: {}", "AES key for main found and written to AES.json".bold(), hex_key.bright_green().bold());
+        println!("{}: {}", "AES key for main found".bold(), hex_key.bright_green().bold());
     } else {
         let aes_keys_relaxed = dump_aes_key(image_base, &sections, &data)?;
         if !aes_keys_relaxed.is_empty() {
             let hex_key: String = format!("0x{}", aes_keys_relaxed.iter().next().unwrap()
                 .iter().map(|byte| format!("{:02X}", byte)).collect::<String>());
             json_output["aes_keys"]["main"] = json!(hex_key);
-            println!("{}: {}", "AES key for main found and written to AES.json".bold(), hex_key.bright_yellow().bold());
+            println!("{}: {}", "AES key for main found".bold(), hex_key.bright_yellow().bold());
         } else {
             println!("{}", "No AES keys found for main in the executable.".red().bold());
         }
     }
-
-<<<<<<< Updated upstream
-    let mut output_file = File::create("AES.json")?;
-    writeln!(output_file, "{}", serde_json::to_string_pretty(&json_output)?)?;
     
-    println!("{}", "Press Enter to exit...".bright_blue());
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
-    
-=======
     let path_buf = PathBuf::from(executable_path);
 
     let executable_name = path_buf
@@ -83,9 +74,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut output_file = File::create(&aes_filename)?;
     writeln!(output_file, "{}", serde_json::to_string_pretty(&json_output)?)?;
-    println!("AES key data saved to: {}", aes_filename);
+    println!("AES key saved to: {}", aes_filename);
 
-    // Ask the user if they want to restore the executable
     println!("{}", "Do you want to restore the executable? (y/n):".bright_blue());
     let mut restore_choice = String::new();
     io::stdin().read_line(&mut restore_choice)?;
@@ -134,6 +124,5 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
 
->>>>>>> Stashed changes
     Ok(())
 }
