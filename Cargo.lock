@@ -212,6 +212,7 @@ dependencies = [
  "embed-resource",
  "goblin",
  "pe-utils",
+ "restorer",
  "serde",
  "serde_json",
  "winconsole",
@@ -235,6 +236,16 @@ checksum = "1465873a3dfdaa8ae7cb14b4383657caab0b3e8a0aa9ae8e04b044854c8dfce2"
 dependencies = [
  "crossbeam-deque",
  "crossbeam-utils",
+]
+
+[[package]]
+name = "restorer"
+version = "0.1.0"
+dependencies = [
+ "goblin",
+ "log",
+ "pe-utils",
+ "thiserror 2.0.11",
 ]
 
 [[package]]

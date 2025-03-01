@@ -2,6 +2,9 @@
 REM Change directory to the project folder
 cd /D rape-wuwa
 
+REM Change the title
+title rape-wuwa build [release]
+
 REM Clean the project
 echo Cleaning the project...
 cargo clean

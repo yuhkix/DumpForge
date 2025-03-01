@@ -1,0 +1,11 @@
+[package]
+name = "restorer"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+goblin.workspace = true
+log.workspace = true
+thiserror.workspace = true
+
+pe-utils.workspace = true

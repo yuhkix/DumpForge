@@ -4,6 +4,7 @@ members = [
     "aes-key-finder",
     "offset-finder",
     "pe-utils", "rape-wuwa",
+    "restorer"
 ]
 
 [workspace.package]
@@ -16,7 +17,7 @@ log = "0.4.22"
 lzma-rs = { version = "0.3.0", features = ["raw_decoder"] }
 patternscanner = "0.5.0"
 serde = { version = "1.0.217", features = ["derive"] }
-thiserror = "2.0.9"
+thiserror = "2.0.11"
 widestring = "1.1.0"
 
 offset-finder = { path = "offset-finder" }
