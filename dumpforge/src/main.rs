@@ -16,11 +16,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     loop {
         clear().expect("failed to clear console.");
+        
         println!("{}", "Select an option:".bright_blue());
-        println!("1. Fetch AES Key (Unreal Engine)");
-        println!("2. Restore Section Headers");
-        println!("3. Get Imports");
-        println!("4. Exit");
+        println!("{} {}", " 1.".bright_blue(), "Fetch AES Key (Unreal Engine)");
+        println!("{} {} {}", " 2.".bright_blue(), "Restore Section Headers from Memory Dump", "(experimental)".bright_red());
+        println!("{} {}", " 3.".bright_blue(), "Get Imports");
+        println!("{} {}", " 4.".bright_blue(), "Exit");
+
+        print!("{}", "> ".bright_red());
+        io::stdout().flush()?;
 
         let mut choice = String::new();
         io::stdin().read_line(&mut choice)?;
@@ -31,10 +35,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "2" => restore_section_headers()?,
             "3" => get_executable_imports()?,
             "4" => break,
-            _ => println!("{}", "Invalid choice. Please try again.".red().bold()),
+            _ => println!("{}", "Invalid choice. Please try again.".bright_red().bold()),
         }
 
-        println!("{}", "Do you want to return to the menu? (y/n):".bright_blue());
+        println!("{} {}{}", "Do you want to return to the menu?", "(y/n)".bright_blue(), ":");
         let mut return_to_menu = String::new();
         io::stdin().read_line(&mut return_to_menu)?;
         let return_to_menu = return_to_menu.trim().to_lowercase();
@@ -57,7 +61,7 @@ fn fetch_aes_key() -> Result<(), Box<dyn std::error::Error>> {
     let executable_path = executable_path.trim();
 
     if !Path::new(executable_path).exists() {
-        eprintln!("{}: {}", "Error".red().bold(), format!("The specified path does not exist: {}", executable_path).red());
+        eprintln!("{}: {}", "Error".red().bold(), format!("The specified path does not exist: {}", executable_path).bright_red());
         println!("{}", "Press Enter to continue...".bright_blue());
         let mut input = String::new();
         io::stdin().read_line(&mut input).unwrap();
@@ -94,7 +98,7 @@ fn fetch_aes_key() -> Result<(), Box<dyn std::error::Error>> {
             json_output["aes_keys"]["main"] = json!(hex_key);
             println!("{}: {}", "AES key for main found".bold(), hex_key.bright_yellow().bold());
         } else {
-            println!("{}", "No AES keys found for main in the executable.".red().bold());
+            println!("{}", "No AES keys found for main in the executable.".bright_red().bold());
         }
     }
 
@@ -121,7 +125,7 @@ fn restore_section_headers() -> Result<(), Box<dyn std::error::Error>> {
     let executable_path = executable_path.trim();
 
     if !Path::new(executable_path).exists() {
-        eprintln!("{}: {}", "Error".red().bold(), format!("The specified path does not exist: {}", executable_path).red());
+        eprintln!("{}: {}", "Error".bright_red().bold(), format!("The specified path does not exist: {}", executable_path).bright_red());
         println!("{}", "Press Enter to continue...".bright_blue());
         let mut input = String::new();
         io::stdin().read_line(&mut input).unwrap();
@@ -166,7 +170,7 @@ fn get_executable_imports() -> Result<(), Box<dyn std::error::Error>> {
     let executable_path = executable_path.trim();
 
     if !Path::new(executable_path).exists() {
-        eprintln!("{}: {}", "Error".red().bold(), format!("The specified path does not exist: {}", executable_path).red());
+        eprintln!("{}: {}", "Error".bright_red().bold(), format!("The specified path does not exist: {}", executable_path).bright_red());
         println!("{}", "Press Enter to continue...".bright_blue());
         let mut input = String::new();
         io::stdin().read_line(&mut input).unwrap();
@@ -230,7 +234,7 @@ fn get_executable_imports() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         println!(
             "{}",
-            "No imports found in the executable.".red().bold()
+            "No imports found in the executable.".bright_red().bold()
         );
     }
 
