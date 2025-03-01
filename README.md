@@ -10,9 +10,9 @@
 
 ### 🔹 DumpForge (My Addition)
 - Utilizes **PE Utils**, **AES Key Finder** and **Restorer** libraries.
-- Dumps the **main AES key**
+- Dumps the **Main AES key** of an **UE Game**
 - Restores **section headers** from memory dumps
-- Fetches the specified executables **imports**
+- Fetches the specified executables **Imports** _(experimental)_
 
 ### 🔹 AES Key Finder (by xavo95)
 - Parses a **PE file** and extracts **AES keys** based on provided parameters.
