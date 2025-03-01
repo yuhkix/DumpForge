@@ -87,13 +87,13 @@ pub fn resolve_symbol(image_base: usize,
     Err(Error::NotInSection(addr))
 }
 
-#[deprecated(since = "0.1.0", note = "Actually not deprecated, but its not finished, so do not use")]
 pub fn get_imports<'a>(bytes: &'a [u8], optional_header: &OptionalHeader, sections: &[SectionTable]) -> Result<Option<ImportData<'a>>, Error> {
     let opts = &options::ParseOptions::default();
     let file_alignment = optional_header.windows_fields.file_alignment;
     let is_64 = optional_header.container()? == container::Container::Big;
     let mut _imports = vec![];
     let mut import_data = None;
+
     if let Some(&import_table) = optional_header.data_directories.get_import_table() {
         let id = if is_64 {
             ImportData::parse_with_opts::<u64>(
@@ -112,11 +112,13 @@ pub fn get_imports<'a>(bytes: &'a [u8], optional_header: &OptionalHeader, sectio
                 opts,
             )?
         };
+
         if is_64 {
             _imports = import::Import::parse::<u64>(bytes, &id, &sections)?
         } else {
             _imports = import::Import::parse::<u32>(bytes, &id, &sections)?
         }
+
         let mut libraries = id
             .import_data
             .iter()
@@ -124,7 +126,9 @@ pub fn get_imports<'a>(bytes: &'a [u8], optional_header: &OptionalHeader, sectio
             .collect::<Vec<&'a str>>();
         libraries.sort();
         libraries.dedup();
+
         import_data = Some(id);
     }
+
     Ok(import_data)
 }
