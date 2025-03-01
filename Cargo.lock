@@ -242,6 +242,7 @@ dependencies = [
 name = "restorer"
 version = "0.1.0"
 dependencies = [
+ "colored",
  "goblin",
  "log",
  "pe-utils",

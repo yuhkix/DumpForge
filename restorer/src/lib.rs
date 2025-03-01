@@ -3,6 +3,7 @@ use std::io::Write;
 use goblin::pe::optional_header::OptionalHeader;
 use goblin::pe::section_table::SectionTable;
 use log::{info, trace};
+use colored::*;
 
 #[derive(thiserror::Error, Debug)]
 pub enum Error {
@@ -76,7 +77,7 @@ pub fn restore_raw<A: AsRef<str>, B: AsRef<str>>(
             } else {
                 eprintln!(
                     "Skipping section {} due to slice length mismatch (source: {}, destination: {})",
-                    String::from_utf8_lossy(&section.name),
+                    String::from_utf8_lossy(&section.name).bright_red(),
                     source_slice.len(),
                     dest_slice.len()
                 );
@@ -84,7 +85,7 @@ pub fn restore_raw<A: AsRef<str>, B: AsRef<str>>(
         } else {
             eprintln!(
                 "Skipping section {} due to out-of-bounds access",
-                String::from_utf8_lossy(&section.name)
+                String::from_utf8_lossy(&section.name).bright_red()
             );
         }
 

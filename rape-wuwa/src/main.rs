@@ -8,10 +8,12 @@ use colored::*;
 use serde_json::json;
 use winconsole::console::set_title;
 use std::env;
+use winconsole::console::clear;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     set_title("Wuthering Waves AES Fetcher").unwrap();
 
+    clear().expect("failed to clear console.");
     println!("{}", "Enter the path to the executable:".bright_blue());
 
     let mut executable_path = String::new();
@@ -74,7 +76,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut output_file = File::create(&aes_filename)?;
     writeln!(output_file, "{}", serde_json::to_string_pretty(&json_output)?)?;
-    println!("AES key saved to: {}", aes_filename);
+    println!("AES key saved to: {}", aes_filename.bright_red());
 
     println!("{}", "Do you want to restore the executable? (y/n):".bright_blue());
     let mut restore_choice = String::new();
@@ -82,41 +84,34 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let restore_choice = restore_choice.trim().to_lowercase();
 
     if restore_choice == "y" {
+        clear().expect("failed to clear console.");
+        
+        let current_exe_dir = env::current_exe()?
+            .parent()
+            .ok_or("Failed to get current executable directory")?
+            .to_path_buf();
+
         let mut dump_file = File::open(executable_path)?;
         let mut dump_data = Vec::new();
         dump_file.read_to_end(&mut dump_data)?;
 
-        println!("{}", "Enter the path to save the restored executable (optional, leave empty for default):".bright_blue());
-        let mut restored_path = String::new();
-        io::stdin().read_line(&mut restored_path)?;
-        let restored_path = restored_path.trim();
+        let executable_name = path_buf
+            .file_stem()
+            .and_then(|name| name.to_str())
+            .unwrap_or("executable");
 
-        let current_dir = env::current_dir()?;
+        let new_name = format!("{}_restored.exe", executable_name);
+        let restored_filename = current_exe_dir.join(new_name).to_string_lossy().into_owned();
 
-        let restored_filename = if restored_path.is_empty() {
-            let path_buf = PathBuf::from(executable_path);
-            
-            let executable_name = path_buf
-                .file_stem()
-                .and_then(|name| name.to_str())
-                .unwrap_or("executable");
+        let restored_executable = restore_from_dump("restored_executable", &dump_data, Some(restored_filename.clone()))?;
 
-            let new_name = format!("{}_restored.exe", executable_name);
-            Some(current_dir.join(new_name).to_string_lossy().into_owned())
-        } else {
-            Some(current_dir.join(restored_path).to_string_lossy().into_owned())
-        };
-
-        let restored_executable = restore_from_dump("restored_executable", &dump_data, restored_filename.clone())?;
-
-        if let Some(filename) = restored_filename {
-            let mut file = File::create(&filename)?;
-            file.write_all(&restored_executable)?;
-            println!("Restored executable saved to: {}", filename);
-        }
+        let mut file = File::create(&restored_filename)?;
+        file.write_all(&restored_executable)?;
+        println!("Restored executable saved to: {}", restored_filename.bright_red());
 
         println!("{}", "Executable restored successfully.".bright_green().bold());
     } else {
+        clear().expect("failed to clear console.");
         println!("{}", "Executable restoration skipped.".bright_yellow().bold());
     }
 
