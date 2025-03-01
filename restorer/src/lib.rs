@@ -63,7 +63,6 @@ pub fn restore_raw<A: AsRef<str>, B: AsRef<str>>(
         let virt_start = section.virtual_address as usize;
         let virt_end = virt_start + section.size_of_raw_data as usize;
 
-        // Ensure the slice ranges are within bounds
         if phys_start <= output.len()
             && phys_end <= output.len()
             && virt_start <= dump.len()
@@ -72,7 +71,6 @@ pub fn restore_raw<A: AsRef<str>, B: AsRef<str>>(
             let source_slice = &dump[virt_start..virt_end];
             let dest_slice = &mut output[phys_start..phys_end];
 
-            // Ensure the source and destination slices have the same length
             if source_slice.len() == dest_slice.len() {
                 dest_slice.copy_from_slice(source_slice);
             } else {
