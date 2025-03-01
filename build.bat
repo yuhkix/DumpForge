@@ -1,9 +1,9 @@
 @echo off
 REM Change directory to the project folder
-cd /D rape-ue
+cd /D dumpforge
 
 REM Change the title
-title rape-ue build [release]
+title dumpforge build [release]
 
 REM Clean the project
 echo Cleaning the project...
