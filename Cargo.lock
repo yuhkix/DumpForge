@@ -66,6 +66,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d0a5c400df2834b80a4c3327b3aad3a4c4cd4de0629063962b03235697506a28"
 
 [[package]]
+name = "dumpforge"
+version = "0.1.0"
+dependencies = [
+ "aes-key-finder",
+ "cc",
+ "colored",
+ "embed-resource",
+ "goblin",
+ "pe-utils",
+ "restorer",
+ "serde",
+ "serde_json",
+ "winconsole",
+]
+
+[[package]]
 name = "either"
 version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -200,22 +216,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0e4dccaaaf89514f546c693ddc140f729f958c247918a13380cccc6078391acc"
 dependencies = [
  "proc-macro2",
-]
-
-[[package]]
-name = "rape-ue"
-version = "0.1.0"
-dependencies = [
- "aes-key-finder",
- "cc",
- "colored",
- "embed-resource",
- "goblin",
- "pe-utils",
- "restorer",
- "serde",
- "serde_json",
- "winconsole",
 ]
 
 [[package]]

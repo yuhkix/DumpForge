@@ -12,7 +12,7 @@ use std::env;
 use winconsole::console::clear;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    set_title("Unreal Engine AES Fetcher").unwrap();
+    set_title("DumpForge").unwrap();
 
     loop {
         clear().expect("failed to clear console.");

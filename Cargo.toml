@@ -3,7 +3,7 @@ resolver = "2"
 members = [
     "aes-key-finder",
     "offset-finder",
-    "pe-utils", "rape-ue",
+    "pe-utils", "dumpforge",
     "restorer"
 ]
 

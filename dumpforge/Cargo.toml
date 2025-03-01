@@ -1,5 +1,5 @@
 [package]
-name = "rape-ue"
+name = "dumpforge"
 version.workspace = true
 edition.workspace = true
 build = "build.rs"
