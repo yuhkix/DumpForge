@@ -1,10 +1,10 @@
-# rape-wuwa (unreal engine aes dumper)
+# rape-ue (unreal engine aes dumper)
 > All Credits go to [xavo95](https://git.xeondev.com/xavo95/RAPE-toolkit) for the helpful reverse assembling program engineering(rape) toolkit
 
 ## Quick tool summary
 
-- RAPE-WuWa (my addition utilizing the **PE Utils** and **AES Key Finder** library)
-  - Currently only dumps the main aes key, but i do plan to add support for pak 26-28 whenever i find a way to automize the necessary steps
+- RAPE-UE (my addition utilizing the **PE Utils** and **AES Key Finder** library)
+  - Dumps the main aes key of the specified executable
 - AES Key Finder (by xavo)
   - Should be self-explanatory but, basically after parsing a PE file you can pass image base, sections, and 
   data(raw binary) and the filter(this tool includes Restricted and Relax filters, but you can add more)
