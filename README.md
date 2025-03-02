@@ -8,13 +8,13 @@
 
 ## 📌 Quick Tool Summary
 
-### 🔹 DumpForge (My Addition)
+### 🔹 DumpForge
 - Utilizes **PE Utils**, **AES Key Finder** and **Restorer** libraries.
 - Dumps the **Main AES key** of an **UE Game**
 - Restores **section headers** from memory dumps
 - Fetches the specified executables **Imports** _(experimental)_
 
-### 🔹 AES Key Finder (by xavo95)
+### 🔹 AES Key Finder
 - Parses a **PE file** and extracts **AES keys** based on provided parameters.
 - Requires:
   - **Image Base**
@@ -23,7 +23,7 @@
   - **Filter Type** (Restricted/Relaxed; customizable)
 - For obtaining the required parameters, refer to **PE Utils** below.
 
-### 🔹 Offset Finder (by xavo95)
+### 🔹 Offset Finder
 - Searches for **patterns in executables**.
 - Supports:
   - **Exact or partial matches** (via wildcards `??`).
@@ -31,7 +31,7 @@
   - **Multiple match handling**.
 - Works with **PE Utils** to return both **file offsets** and **RVA** (Relative Virtual Address).
 
-### 🔹 Restorer (by xavo95)
+### 🔹 Restorer
 - Converts **memory dumps** (Frida and other dumpers, including private ones)  
   into a **reconstructed PE file**.
 - Fixes the **section table** to allow further analysis with other tools.
